@@ -5,7 +5,7 @@ import sys
 from tqdm import tqdm
 
 
-def command_line(args=None):
+def arguments(args=None):
     parser = argparse.ArgumentParser(description='Export all googlegroups messages.')
     parser.add_argument('group', help='Group name on the url.')
     parser.add_argument('mode', choices=['csv', 'mbox'], help='Export topic list to csv or all messages to mbox.')
