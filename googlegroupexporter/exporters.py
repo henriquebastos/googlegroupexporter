@@ -2,7 +2,7 @@ import csv
 import logging
 from mailbox import mbox
 
-from googlegroupexport.pages import GroupPage, TopicPage
+from googlegroupexporter.pages import GroupPage, TopicPage
 
 
 logger = logging.getLogger(__name__)

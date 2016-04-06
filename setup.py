@@ -29,7 +29,7 @@ setup(name='GoogleGroup Exporter',
       tests_require=['pytest'],
       entry_points={
           'console_scripts': [
-              'ggexport = googlegroupexport.cmd:main',
+              'ggexport = googlegroupexporter.cmd:main',
           ]
       },
       include_package_data=True,

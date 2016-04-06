@@ -1,8 +1,8 @@
 from time import sleep
 
-from googlegroupexport.cli import arguments, progressbar, verbosity
-from googlegroupexport.exporters import TopicExporter, MailExporter
-from googlegroupexport.session import session_factory
+from googlegroupexporter.cli import arguments, progressbar, verbosity
+from googlegroupexporter.exporters import TopicExporter, MailExporter
+from googlegroupexporter.session import session_factory
 
 
 def main():

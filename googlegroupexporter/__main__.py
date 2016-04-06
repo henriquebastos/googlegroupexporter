@@ -1,4 +1,4 @@
-from cmd import main
+from googlegroupexporter.cmd import main
 
 if __name__ == '__main__':
     main()

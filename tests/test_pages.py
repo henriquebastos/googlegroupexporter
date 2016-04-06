@@ -3,7 +3,7 @@ from unittest import TestCase
 
 import datetime
 
-from googlegroupexport.pages import GroupPage, TopicPage
+from googlegroupexporter.pages import GroupPage, TopicPage
 
 
 class PageTest(TestCase):
