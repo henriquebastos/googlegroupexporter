@@ -9,7 +9,7 @@ def readme():
 long_description = open('README.rst').read()
 
 setup(name='GoogleGroup Exporter',
-      version='1.0.0',
+      version='0.1',
       description='Export all your GoogleGroup content.',
       long_description=readme(),
       author='Henrique Bastos',
