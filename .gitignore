@@ -76,3 +76,6 @@ target/
 contrib/
 .idea/
 webcache/
+
+*.mbox
+*.csv
