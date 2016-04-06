@@ -1,0 +1,9 @@
+CacheControl==0.11.6
+lockfile==0.12.2
+py==1.4.31
+pytest==2.9.1
+python-dateutil==2.4.2
+requests==2.9.1
+requests-futures==0.9.7
+six==1.10.0
+tqdm==3.8.0
