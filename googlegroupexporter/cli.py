@@ -8,8 +8,9 @@ from tqdm import tqdm
 def arguments(args=None):
     parser = argparse.ArgumentParser(description='Export all googlegroups messages.')
     parser.add_argument('group', help='Group name on the url.')
-    parser.add_argument('mode', choices=['csv', 'mbox'], help='Export topic list to csv or all messages to mbox.')
-    parser.add_argument('-c', '--cookies', type=argparse.FileType(), help='Cookie file.', required=True)
+    parser.add_argument('-m', '--mode', choices=['csv', 'mbox'], default='mbox',
+                        help='Export topic list to csv or all messages to mbox.')
+    parser.add_argument('-c', '--cookies', type=argparse.FileType(), help='Cookie file.')
     parser.add_argument('-d', '--cachedir', default='webcache', dest='cache_dir')
     parser.add_argument('-t', '--cachedays', type=int, default=7, dest='cache_days')
     parser.add_argument('-f', '--cacheforever', action='store_true', default=False, dest='cache_forever')

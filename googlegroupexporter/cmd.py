@@ -1,7 +1,7 @@
 from time import sleep
 
 from googlegroupexporter.cli import arguments, progressbar, verbosity
-from googlegroupexporter.exporters import TopicExporter, MailExporter
+from googlegroupexporter.exporters import CsvExporter, MailExporter
 from googlegroupexporter.session import session_factory
 
 
@@ -11,12 +11,12 @@ def main():
     verbosity(options.verbose)
 
     session = session_factory(
-        options.cookies.name, options.workers,
+        options.cookies and options.cookies.name, options.workers,
         options.cache_dir, options.cache_forever, options.cache_days
     )
 
     # Choose exporter class according to selected mode.
-    Exporter = dict(csv=TopicExporter, mbox=MailExporter)[options.mode]
+    Exporter = dict(csv=CsvExporter, mbox=MailExporter)[options.mode]
     filename = '{}.{}'.format(options.group, options.mode)
 
     with Exporter(session, filename) as exporter:
@@ -28,4 +28,4 @@ def main():
 
                 sleep(0.01)
 
-        print(exporter.summary)
+        print(exporter)

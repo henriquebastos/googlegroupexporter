@@ -20,11 +20,14 @@ class TestGroupPage(PageTest):
     page_class = GroupPage
     fixture = 'topic-index.html'
 
-    def test_ids_len(self):
-        self.assertEqual(20, len(self.page.ids))
+    def test_id(self):
+        self.assertEqual(('wttd-2015',), self.page.id)
 
-    def test_ids(self):
-        self.assertEqual('wttd-2015/BqKNl92tGG8', self.page.ids[0])
+    def test_children_len(self):
+        self.assertEqual(20, len(self.page.children))
+
+    def test_children(self):
+        self.assertEqual(('wttd-2015', 'BqKNl92tGG8'), self.page.children[0])
 
     def test_links_len(self):
         self.assertEqual(20, len(self.page.links))
@@ -39,6 +42,7 @@ class TestGroupPage(PageTest):
 
     def test_data(self):
         expected = (
+            ('wttd-2015', '-Sgu19ezcbA'),
             'https://groups.google.com/d/topic/wttd-2015/-Sgu19ezcbA',
             'Estrela em Orçamentos no GitHub',
             'regis.santos.100',
@@ -57,11 +61,14 @@ class TestTopicPage(PageTest):
     page_class = TopicPage
     fixture = 'message-index.html'
 
-    def test_ids_len(self):
-        self.assertEqual(88, len(self.page.ids))
+    def test_children_len(self):
+        self.assertEqual(88, len(self.page.children))
 
-    def test_ids(self):
-        self.assertEqual('wttd-2015/BqKNl92tGG8/b62NyYWpAwAJ', self.page.ids[0])
+    def test_children(self):
+        self.assertEqual(('wttd-2015', 'BqKNl92tGG8', 'b62NyYWpAwAJ'), self.page.children[0])
+
+    def test_id(self):
+        self.assertEqual(('wttd-2015', 'BqKNl92tGG8'), self.page.id)
 
     def test_links_len(self):
         self.assertEqual(88, len(self.page.links))
@@ -72,3 +79,7 @@ class TestTopicPage(PageTest):
 
     def test_next(self):
         self.assertEqual('', next(self.page))
+
+    def test_title(self):
+        self.assertEqual('Roadmap WTTD', self.page.title)
+
