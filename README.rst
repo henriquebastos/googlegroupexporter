@@ -33,16 +33,11 @@ Features
 Installation and Usage
 ----------------------
 
-Install Python 3.5 or greater and then simply:
-
-.. code-block:: bash
+Install Python 3.5 or greater and then simply::
 
     $ pip install googlegroupexporter
 
-
-Then execute the program:
-
-.. code-block:: bash
+Then execute the program::
 
     $ ggexport my-public-group
 
