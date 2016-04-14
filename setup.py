@@ -9,7 +9,7 @@ def readme():
 long_description = open('README.rst').read()
 
 setup(name='googlegroupexporter',
-      version='0.1',
+      version='0.2',
       description='GoogleGroup Exporter - Unlock your mailing list',
       long_description=readme(),
       author='Henrique Bastos',
@@ -17,7 +17,10 @@ setup(name='googlegroupexporter',
       url='https://github.com/henriquebastos/googlegroupexporter',
       license='MIT',
       keywords='googlegroup export mbox csv crawler web',
-      packages=['googlegroupexporter'],
+      packages=[
+          'googlegroupexporter',
+          'googlegroupexporter.exporters',
+      ],
       install_requires=[
           'cachecontrol[filecache]',
           'python-dateutil',
