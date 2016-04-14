@@ -11,8 +11,8 @@ def main():
     verbosity(options.verbose)
 
     session = session_factory(
-        options.cookies and options.cookies.name, options.workers,
-        options.cache_dir, options.cache_forever, options.cache_days
+        options.cookies, options.workers,
+        options.cache_dir, options.cache_days, options.cache_forever
     )
 
     # Choose exporter class according to selected mode.

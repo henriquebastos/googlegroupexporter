@@ -1,7 +1,7 @@
 import logging
-from http.cookiejar import MozillaCookieJar
 
 import requests
+from requests.cookies import cookiejar_from_dict
 from requests_futures.sessions import FuturesSession
 from cachecontrol import CacheControl
 from cachecontrol.caches import FileCache
@@ -9,6 +9,17 @@ from cachecontrol.heuristics import ExpiresAfter
 
 
 logger = logging.getLogger(__name__)
+
+
+def cookiejar_from_str(cookie_string):
+    """
+    Returns a CookieJar from a Cookie header string.
+    :param cookie_string: Cookie header string
+    :return: RequestJar
+    """
+    tokens = cookie_string.split('; ')
+    pairs = [t.split('=', 1) for t in tokens]
+    return cookiejar_from_dict(dict(pairs))
 
 
 class ProgressStatus:
@@ -48,15 +59,14 @@ class ProgressFuturesSession(FuturesSession):
         self.status.add(future)
 
 
-def session_factory(cookie_file=None, max_workers=10, cache_dir=None, cache_days=7, cache_forever=False):
+def session_factory(cookie_string=None, max_workers=10, cache_dir=None, cache_days=7, cache_forever=False):
         session = requests.Session()
 
-        if cookie_file:
-            cookies = MozillaCookieJar(cookie_file)
-            cookies.load()
-            session.cookies = cookies
+        if cookie_string:
+            session.cookies = cookiejar_from_str(cookie_string)
 
         if cache_dir:
+            logger.debug('Using CacheControl: dir=%r, days=%r, forever=%r', cache_dir, cache_days, cache_forever)
             session = CacheControl(
                 session,
                 cache=FileCache(cache_dir, forever=cache_forever),
@@ -64,5 +74,7 @@ def session_factory(cookie_file=None, max_workers=10, cache_dir=None, cache_days
             )
 
         session = ProgressFuturesSession(max_workers=max_workers, session=session)
+
+        logger.debug('%s with cookies: %s', type(session).__name__, session.cookies)
 
         return session
