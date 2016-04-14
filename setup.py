@@ -8,9 +8,9 @@ def readme():
 
 long_description = open('README.rst').read()
 
-setup(name='GoogleGroup Exporter',
+setup(name='googlegroupexporter',
       version='0.1',
-      description='Export all your GoogleGroup content.',
+      description='GoogleGroup Exporter - Unlock your mailing list',
       long_description=readme(),
       author='Henrique Bastos',
       author_email='henrique@bastos.net',
