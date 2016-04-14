@@ -78,7 +78,8 @@ After creating your cookie file, run::
 Listing your group topics
 -------------------------
 
-To create a `csv` listing all your group's topics along with their urls, authors, dates and number of messages, run::
+To create a `csv` listing all your group's topics along with their
+urls, authors, dates and number of messages, run::
 
     ggexport my-private-group --mode csv --cookies cookies.txt
 
@@ -95,7 +96,8 @@ Change what you want, then run the tests::
 
     python setup.py test
 
-To run your developed code you can use the command `ggexport` or run the module `python -m googlegroupexporter`.
+To run your developed code you can use the command ``ggexport`` or run
+the module ``python -m googlegroupexporter``.
 
 When everything works, submit a *pull request*.
 
