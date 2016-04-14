@@ -35,13 +35,13 @@ Installation and Usage
 
 Install Python 3.5 or greater and then simply::
 
-    $ pip install googlegroupexporter
+    pip install googlegroupexporter
 
 Then execute the program::
 
-    $ ggexport my-public-group
+    ggexport my-public-group
 
-By default, `ggexport` will generate a `my-public-group.mbox` file
+By default, ``ggexport`` will generate a ``my-public-group.mbox`` file
 with all the messages. Then you can open it with you preferred email
 client.
 
@@ -71,18 +71,16 @@ Chrome add-on EditThisCookie <http://www.editthiscookie.com/>`_
     groups.google.com	FALSE	/	FALSE	1234567890	__utmz	SECRETVALUE
     .groups.google.com	TRUE	/	TRUE		groupsloginpref	SECRETVALUE
 
-After creating your cookie file, run:
+After creating your cookie file, run::
 
-    $ ggexport my-private-group --cookies cookies.txt
-
+    ggexport my-private-group --cookies cookies.txt
 
 Listing your group topics
 -------------------------
 
-To create a `csv` listing all your group's topics along with their urls, authors, dates and number of messages, run:
+To create a `csv` listing all your group's topics along with their urls, authors, dates and number of messages, run::
 
-    $ ggexport my-private-group --mode csv --cookies cookies.txt
-
+    ggexport my-private-group --mode csv --cookies cookies.txt
 
 How to contribute
 -----------------
