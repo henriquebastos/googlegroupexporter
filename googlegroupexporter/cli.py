@@ -2,6 +2,8 @@ import argparse
 import logging
 
 import sys
+from time import sleep
+
 from tqdm import tqdm
 
 
@@ -46,3 +48,17 @@ class ProgressBar(tqdm):
 
 def progressbar():
     return ProgressBar(leave=True, bar_format='[{elapsed}] {n_fmt} downloads from {total_fmt} requests')
+
+
+def export_with_progress(exporter, group_name):
+    exporter.export(group_name)
+
+    with progressbar() as bar:
+        for progress, total in exporter:
+            bar.update(progress, total)
+
+            sleep(0.01)
+
+    print(exporter)
+
+    exporter.close()
