@@ -11,7 +11,7 @@ class MailExporter(Exporter):
         self.summary = {}
 
     def before_export(self, group_name):
-        output = group_name + '.mbox'
+        output = f'{group_name}.mbox'
 
         self.mbox = mbox(output)
         self.summary = dict(indexes=0, topics=0, messages=0)

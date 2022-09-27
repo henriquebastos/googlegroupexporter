@@ -25,7 +25,7 @@ class CsvExporter(Exporter):
         self.topics = OrderedDict()
 
     def before_export(self, group_name):
-        output = group_name + '.csv'
+        output = f'{group_name}.csv'
 
         self.csv_file = open(output, 'w', encoding='utf-8')
         self.csv = csv.writer(self.csv_file, delimiter=';')
